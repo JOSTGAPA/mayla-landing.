@@ -1,0 +1,160 @@
+:root{
+  --crema: #FFF8F0;
+  --oro: #D4AF37;
+  --rosa: #F7C6C7;
+  --plata: #C0C0C0;
+  --txt: #333;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+  background: var(--crema);
+  color: var(--txt);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.fold{
+  max-width: 600px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 2rem;
+}
+
+/* Cielo: luna + estrella */
+.sky{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.moon, .star{
+  width: 48px;
+  height: 48px;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw 2s ease-out forwards;
+}
+
+.moon{
+  stroke: var(--plata);
+}
+
+.star{
+  stroke: var(--rosa);
+}
+
+@keyframes draw{
+  to{ stroke-dashoffset: 0; }
+}
+
+.moon:hover, .star:hover{
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 8px currentColor);
+  transition: transform .3s, filter .3s;
+}
+
+/* Texto */
+.texto h1{
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: var(--oro);
+  margin-bottom: .5rem;
+}
+
+.texto h2{
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--plata);
+  margin-bottom: 1.5rem;
+}
+
+.texto p{
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 55ch;
+  margin: 0 auto 1rem;
+}
+
+.signature{
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: var(--oro);
+  margin-top: 1rem;
+}
+
+.fr{
+  font-size: .9rem;
+  color: var(--plata);
+}
+
+/* Reproductor */
+footer{
+  margin-top: 1.5rem;
+}
+
+#playBtn{
+  background: var(--oro);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .3s;
+}
+
+#playBtn:hover{
+  background: var(--rosa);
+}
+
+#playBtn svg{
+  width: 16px;
+  height: 16px;
+  fill: var(--crema);
+}
+
+.btn-docs {
+  margin-top: 2rem;
+}
+
+.btn-docs a {
+  display: inline-block;
+  background: var(--rosa);
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-docs a:hover {
+  background: var(--oro);
+}
+
+/* Responsive */
+@media (min-width: 600px){
+  .texto h1{ font-size: 3rem; }
+  .texto h2{ font-size: 1.3rem; }
+  .texto p{ font-size: 1.1rem; }
+  .moon, .star{ width: 60px; height: 60px; }
+}
